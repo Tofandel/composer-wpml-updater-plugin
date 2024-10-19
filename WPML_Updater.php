@@ -53,6 +53,7 @@ class WPML_Updater implements PluginInterface, EventSubscriberInterface
         }
         try {
             if (!isset($packages)) {
+                // Repository url from https://git.onthegosystems.com/installer/installer/-/blob/develop/repositories.xml?ref_type=heads
                 $remoteJson = json_decode(file_get_contents('https://d2salfytceyqoe.cloudfront.net/wpml33-products.json'), true);
 
                 $packages = [];
