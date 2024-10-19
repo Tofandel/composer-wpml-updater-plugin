@@ -3,7 +3,7 @@
 First install the composer plugin in your project (or globally)
 
 ```bash
-composer require tofandel/wpml-updater
+composer require --dev tofandel/wpml-updater
 ```
 
 Then create an `auth.json` file in which you will add your WPML credentials 
