@@ -13,6 +13,7 @@
     }
   },
   "extra": {
-    "class": "WPML_Updater\\WPML_Updater"
+    "class": "WPML_Updater\\WPML_Updater",
+    "plugin-modifies-downloads": true
   }
 }
