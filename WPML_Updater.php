@@ -53,22 +53,23 @@ class WPML_Updater implements PluginInterface, EventSubscriberInterface
         }
         try {
             if (!isset($packages)) {
-                $remoteJson = json_decode(file_get_contents('https://d2salfytceyqoe.cloudfront.net/wpml33-products.json'));
+                $remoteJson = json_decode(file_get_contents('https://d2salfytceyqoe.cloudfront.net/wpml33-products.json'), true);
 
                 $packages = [];
-                foreach ($remoteJson->downloads->plugins as $package) {
-                    if ($package->{'free-on-wporg'} || $package->{'fallback-free-on-wporg'}) {
+                foreach ($remoteJson['downloads']['plugins'] as $package) {
+                    if ($package['free-on-wporg'] || $package['fallback-free-on-wporg']) {
                         continue;
                     }
                     $packages[] = [
                         'package' => [
-                            'name' => 'wpml/' . $package->slug,
+                            'name' => 'wpml/' . $package['slug'],
                             'type' => 'wordpress-plugin',
-                            'description' => $package->description,
-                            'version' => $package->version,
-                            'require' => [
+                            'description' => $package['description'],
+                            'version' => $package['version'],
+                            'require' => !empty($package['glue_check_slug']) ? [
+                                'wpackagist-plugin/' . $package['glue_check_slug'] => '*',
                                 //'roots/wordpress' => '^' . $package->tested
-                            ],
+                            ] : [],
                             "dist" => [
                                 "type" => "zip",
                                 "url" => $package->url,
@@ -76,7 +77,6 @@ class WPML_Updater implements PluginInterface, EventSubscriberInterface
                         ]
                     ];
                 }
-                print_r(array_map(fn ($p) => $p['package']['name'], $packages));
             }
 
             foreach ($packages as $packageConfig) {
