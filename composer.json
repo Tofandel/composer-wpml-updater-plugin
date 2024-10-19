@@ -1,7 +1,6 @@
 {
   "name": "tofandel/wpml-updater",
   "type": "composer-plugin",
-  "version": "0.0.1",
   "require": {
     "composer-plugin-api": "^2.0"
   },
