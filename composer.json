@@ -1,0 +1,19 @@
+{
+  "name": "tofandel/wpml-updater",
+  "type": "composer-plugin",
+  "version": "0.0.1",
+  "require": {
+    "composer-plugin-api": "^2.0"
+  },
+  "require-dev": {
+    "composer/composer": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPML_Updater\\": "."
+    }
+  },
+  "extra": {
+    "class": "WPML_Updater\\WPML_Updater"
+  }
+}
