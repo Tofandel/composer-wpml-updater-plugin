@@ -72,7 +72,7 @@ class WPML_Updater implements PluginInterface, EventSubscriberInterface
                             ] : [],
                             "dist" => [
                                 "type" => "zip",
-                                "url" => $package->url,
+                                "url" => $package['url'],
                             ],
                         ]
                     ];
