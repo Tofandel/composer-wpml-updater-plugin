@@ -58,9 +58,9 @@ class WPML_Updater implements PluginInterface, EventSubscriberInterface
 
                 $packages = [];
                 foreach ($remoteJson['downloads']['plugins'] as $package) {
-                    if ($package['free-on-wporg'] || $package['fallback-free-on-wporg']) {
+                    /*if ($package['free-on-wporg'] || $package['fallback-free-on-wporg']) {
                         continue;
-                    }
+                    }*/
                     $packages[] = [
                         'package' => [
                             'name' => 'wpml/' . $package['slug'],
