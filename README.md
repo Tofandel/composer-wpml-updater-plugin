@@ -50,4 +50,15 @@ They will also get upgraded during `composer upgrade` if you do not change the v
 - wpml/wpml-sticky-links
 - wpml/wpml-cms-nav
 
-We do not provide the plugins available for free on wordpress.org because they are better served by wpackagist.org
+~We do not provide the plugins available for free on wordpress.org because they are better served by wpackagist.org~
+
+We now provide them because those packages will sometimes receive updates later than the WPML repositories, leading to version mismatch.
+
+### List of available free plugins
+
+- wpml/woocommerce-multilingual
+- wpml/buddypress-multilingual
+
+
+> [!NOTE]
+> Those lists are retrieved directly from https://d2salfytceyqoe.cloudfront.net/wpml33-products.json, and this readme is not regularly updated, so this list may end up diverging from what is available
