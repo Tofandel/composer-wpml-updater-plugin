@@ -103,7 +103,7 @@ class WPML_Updater implements PluginInterface, EventSubscriberInterface
         $query = $parsed['query'] ?? null;
 
         $auth = $this->composer->getConfig()->get('get-parameter');
-        if (!$warned && empty($auth['wpml.org']) && $host === 'wpml.org' && !str_contains($query, 'subscription_key')) {
+        if (!$warned && empty($auth['wpml.org']['user_id']) && $host === 'wpml.org' && !str_contains($query, 'subscription_key')) {
             $this->io->warning('Missing authentication parameters for wpml.org, you should set in your auth.json
 {
   "get-parameter": {
